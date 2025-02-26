@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa";
 
 const Stories = () => {
   return (
-    <div className="flex flex-col-reverse lg:flex-row items-center justify-between border mt-20 px-10 md:px-40 min-h-screen bg-gray-100 md:gap-32">
+    <div className="flex flex-col-reverse lg:flex-row items-center justify-between mt-20 px-10 md:px-40 min-h-screen bg-gray-100 md:gap-32">
       {/* Left image section - moves to bottom on mobile */}
       <div className="flex flex-col gap-8 w-full lg:w-1/2">
         <div className="flex space-x-8 mt-8 md:hidden">
@@ -26,7 +26,7 @@ const Stories = () => {
             className="rounded-lg shadow-lg w-[60%]"
           />
         </div>
-        <div className="flex space-x-8 hidden md:block">
+        <div className="flex space-x-2 hidden md:block">
           <button className="bg-white text-gray-800 font-semibold rounded-full px-4 border-1 py-2 border-4 border-green-900 transition duration-300">
             Arian
           </button>
@@ -40,7 +40,7 @@ const Stories = () => {
       </div>
       {/* Right side content - moves to top on mobile */}
       <div className="text-left w-full lg:w-1/2 flex gap-5 flex-col">
-        <h1 className="text-4xl md:text-7xl font-bold text-gray-800 mb-4">
+        <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
           Find out why we’re better.
         </h1>
         <button className="bg-green-900 text-white font-semibold py-4 px-6 rounded-full transition duration-300 mb-4">
