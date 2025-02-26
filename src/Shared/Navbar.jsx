@@ -1,112 +1,89 @@
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 import clsx from "clsx";
+import { IoIosCall } from "react-icons/io";
 
 const Navbar = () => {
-  const user = true;
   const navigate = useNavigate();
   const { pathname } = useLocation();
   // console.log(pathname);
   const [menuBar, setMenuBar] = useState(false);
   const [color, setColur] = useState(false);
   const changeColor = () => {
-    if (window.scrollY >= 90) {
+    if (window.scrollY >= 800) {
       setColur(true);
     } else {
       setColur(false);
     }
   };
   window.addEventListener("scroll", changeColor);
-  const handleLogOut = () => {
-    logOut()
-      .then(() => {
-        navigate("/login");
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
+
   return (
     <div
       className={
         color
-          ? `header  header-bg flex justify-between px-8 items-center py-6  text-white ${
-              pathname === "/" && "text-white"
+          ? `header  header-bg flex justify-between px-8 items-center py-6  text-white  ${
+              pathname === "/" && "text-black"
             }`
-          : `header  flex justify-between px-8 items-center py-6 text-black`
+          : `header bg-[#004733] flex justify-between px-8 items-center py-6 text-white z-60 w-full`
       }
     >
       {/* Left section in navbar */}
       <div className="flex items-center justify-between">
-        <section className="flex items-center gap-4">
-          {/* Menu bar */}
-          <IoMenu
-            onClick={() => setMenuBar(true)}
-            className="text-4xl cursor-pointer lg:hidden"
-          />
+        <section className="flex items-center gap-4 mr-16">
           {/* website name */}
           <Link to="/">
             <h1
               className={`text-2xl font-bold ${
                 pathname !== "/" && "text-black"
-              } ${color && "text-white"}`}
+              } ${color && "text-black"}`}
             >
-              BLOG VISTA
+              BETTER
             </h1>
           </Link>
         </section>
         {/* Links in the center */}
-        <ul className="hidden lg:block lg:flex space-x-6 ">
+        <ul className="hidden lg:block lg:flex space-x-8 ">
           <li>
             <NavLink
               to="/"
-              className={`hover:text-red-500 font-semibold ml-6 ${
+              className={` font-semibold ml-6 hover:bg-white hover:text-black py-2 px-4 rounded-full transition-all ${
                 pathname !== "/" && "text-black"
-              } ${color && "text-white"}`}
+              } ${color && "text-black"}`}
             >
               Home
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="/add-blog"
-              className={`hover:text-red-500 font-semibold ${
+              to="/start-page"
+              className={` font-semibold hover:bg-white hover:text-black py-2 px-4 rounded-full transition-all ${
                 pathname !== "/" && "text-black"
-              } ${color && "text-white"}`}
+              } ${color && "text-black"}`}
             >
-              Add Blog
+              Start Page
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="/all-blogs"
-              className={`hover:text-red-500 font-semibold ${
+              to="/mortgage"
+              className={` font-semibold hover:bg-white hover:text-black py-2 px-4 rounded-full transition-all ${
                 pathname !== "/" && "text-black"
-              } ${color && "text-white"}`}
+              } ${color && "text-black"}`}
             >
-              All Blogs
+              Mortgage Calculator
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="/featured-blogs"
-              className={`hover:text-red-500 font-semibold ${
+              to="/about-us"
+              className={` font-semibold hover:bg-white hover:text-black py-2 px-4 rounded-full transition-all ${
                 pathname !== "/" && "text-black"
-              } ${color && "text-white"}`}
+              } ${color && "text-black"}`}
             >
-              Featured Blogs
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/wishlist"
-              className={`hover:text-red-500 font-semibold ${
-                pathname !== "/" && "text-black"
-              } ${color && "text-white"}`}
-            >
-              Wishlist
+              About US
             </NavLink>
           </li>
         </ul>
@@ -118,7 +95,7 @@ const Navbar = () => {
           menuBar && "translate-x-0"
         )}
       >
-        <section className="text-black bg-white flex flex-col absolute left-0 top-0 h-screen p-8 gap-8  w-56">
+        <section className="text-black bg-white flex flex-col absolute left-0 top-0 h-screen p-8 gap-8  w-full">
           <IoClose
             onClick={() => setMenuBar(false)}
             className="text-4xl cursor-pointer mt-0 mb-8"
@@ -126,75 +103,38 @@ const Navbar = () => {
           {/* Links in the center */}
           <ul className="flex flex-col gap-8 space-x-6">
             <li>
-              <NavLink to="/" className="hover:text-red-500 font-semibold ml-6">
+              <NavLink to="/" className=" font-semibold ">
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to="/add-blog"
-                className="hover:text-red-500 font-semibold"
-              >
-                Add Blog
+              <NavLink to="/start-page" className=" font-semibold">
+                Start Page
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to="/all-blogs"
-                className="hover:text-red-500 font-semibold"
-              >
-                All Blogs
+              <NavLink to="/mortgage" className=" font-semibold">
+                Mortgage Calculator
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to="/featured-blogs"
-                className="hover:text-red-500 font-semibold"
-              >
-                Featured Blogs
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/wishlist"
-                className="hover:text-red-500 font-semibold"
-              >
-                Wishlist
+              <NavLink to="/about-us" className=" font-semibold">
+                About US
               </NavLink>
             </li>
           </ul>
           <div className="flex flex-col gap-6">
-            {user?.email ? (
-              <>
-                <div>
-                  <img
-                    referrerPolicy="no-referrer"
-                    className="w-12 h-12 rounded-full"
-                    src={user?.photoURL}
-                    alt=""
-                  />
-                </div>
-                <button
-                  onClick={handleLogOut}
-                  className="bg-red-500 text-white hover:bg-red-600 px-4 py-2 rounded"
-                >
-                  Log out
-                </button>
-              </>
-            ) : (
-              <>
-                <Link to="/login">
-                  <button className="bg-red-500 text-white hover:bg-red-600 px-4 py-2 rounded">
-                    Login
-                  </button>
-                </Link>
-                <Link to="/register">
-                  <button className="bg-green-500 hover:bg-green-600 px-4 py-2 rounded text-white">
-                    Register
-                  </button>
-                </Link>
-              </>
-            )}
+            <button className=" text-black  px-4 py-6 rounded-full flex justify-center items-center">
+              <IoIosCall className="text-3xl" />
+              <p>Call us anytime at (415) 523 88371</p>
+            </button>
+
+            <button className="bg-[#1FE180] hover:bg-green-600 px-4 py-6 rounded-full text-black font-semibold">
+              Continue
+            </button>
+            <button className="border border-gray-300 text-black font-semibold hover:outline-bg-700 px-4 py-6 rounded-full ">
+              Sign in
+            </button>
           </div>
         </section>
       </div>
@@ -203,38 +143,22 @@ const Navbar = () => {
         {/* User photo */}
 
         {/* Sign Out Button */}
-        <div className="flex items-center gap-2">
-          {user?.email ? (
-            <>
-              <div>
-                <img
-                  referrerPolicy="no-referrer"
-                  className="w-12 h-12 rounded-full"
-                  src={user?.photoURL}
-                  alt=""
-                />
-              </div>
-              <button
-                onClick={handleLogOut}
-                className="bg-red-500 text-white hover:bg-red-600 px-4 py-2 rounded"
-              >
-                Log out
-              </button>
-            </>
-          ) : (
-            <>
-              <Link to="/login">
-                <button className="bg-red-500 text-white hover:bg-red-600 px-4 py-2 rounded">
-                  Login
-                </button>
-              </Link>
-              <Link to="/register">
-                <button className="bg-green-500 hover:bg-green-600 px-4 py-2 rounded text-white">
-                  Register
-                </button>
-              </Link>
-            </>
-          )}
+        <div className="flex items-center gap-6">
+          <button className="bg-transparent text-white hover:bg-white hover:text-black hover:border-none rounded-full px-2 py-2 border rounded">
+            <IoIosCall className="text-2xl" />
+          </button>
+
+          <button className=" text-white hover:text-black  hover:bg-white px-4 py-2 rounded-full hidden md:block">
+            Sign in
+          </button>
+
+          <button className="bg-[#1FE180] hover:bg-green-600 px-4 py-2 rounded-full text-black hover:bg-transparent">
+            Continue
+          </button>
+          <IoMenu
+            onClick={() => setMenuBar(true)}
+            className="text-4xl text-black cursor-pointer lg:hidden"
+          />
         </div>
       </section>
     </div>

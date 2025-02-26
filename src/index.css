@@ -1,8 +1,8 @@
 @import "tailwindcss";
-.active {
+/* .active {
   color: red;
   text-decoration: underline;
-}
+} */
 .header {
   position: fixed;
   height: 90px;
@@ -14,8 +14,11 @@
   overflow: hidden;
 }
 .header-bg {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: white;
 }
 .bg-green {
   background-color: green;
+}
+html {
+  overflow-x: hidden;
 }
