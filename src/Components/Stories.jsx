@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa";
 
 const Stories = () => {
   return (
-    <div className="flex flex-col-reverse lg:flex-row items-center justify-between mt-20 px-10 md:px-40 min-h-screen bg-gray-100 md:gap-32">
+    <div className="flex flex-col-reverse lg:flex-row items-center mt-20 px-10 md:px-40 min-h-screen bg-gray-100 md:gap-32">
       {/* Left image section - moves to bottom on mobile */}
       <div className="flex flex-col gap-8 w-full lg:w-1/2">
         <div className="flex space-x-8 mt-8 md:hidden">

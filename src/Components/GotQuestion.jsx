@@ -5,7 +5,7 @@ import oneDay from "../../public/one-day.webp";
 import insurance from "../../public/insurance.webp";
 const GotQuestion = () => {
   return (
-    <div className="w-[70%] md:w-11/12 mx-auto  my-20">
+    <div className="w-[80%] md:w-11/12 mx-auto  my-20">
       {/* top header */}
       <div className="flex justify-between flex-wrap gap-8 items-end">
         {/* left content */}
@@ -15,7 +15,7 @@ const GotQuestion = () => {
           </h1>
         </div>
         {/* right button */}
-        <div className="space-x-4">
+        <div className="space-x-4 space-y-4">
           <button className="bg-white text-gray-800 font-semibold rounded-full px-4 border-1 py-2 border-4 border-green-900 transition duration-300">
             Our products
           </button>
@@ -28,7 +28,7 @@ const GotQuestion = () => {
         </div>
       </div>
       {/* bottom content 1 */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start my-22">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start ">
         {/* First Question */}
         <div className="bg-[#F0F7F1] p-6 flex flex-col md:flex-row md:justify-between lg:flex-col items-start md:items-center lg:items-start gap-6 col-span-12 lg:col-span-4">
           <div className="space-y-4  md:w-1/2 lg:w-full">
@@ -106,7 +106,7 @@ const GotQuestion = () => {
         </div>
       </div>
       {/* Bottom Content 2 */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start my-22">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Second Question */}
         <div className="bg-[#F0F7F1] p-6 flex flex-col md:flex-row lg:grid lg:grid-cols-2 items-start gap-6 col-span-12 lg:col-span-8">
           <div className="space-y-4 md:w-1/2 lg:w-full">
