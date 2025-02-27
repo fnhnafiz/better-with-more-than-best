@@ -5,9 +5,9 @@ import { FcGoogle } from "react-icons/fc";
 
 const Banner = () => {
   return (
-    <div className="bg-[#004733] relative">
+    <div className="bg-[#004733] relative isolate">
       {/* Text Content */}
-      <h1 className="text-5xl text-center absolute top-[15%] left-1/2 md:top-[30%] md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 sm:text-6xl md:text-[130px] font-bold text-green-300 z-10 w-full ">
+      <h1 className="text-5xl text-center absolute top-[15%] left-1/2 md:top-[30%] md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 sm:text-6xl md:text-[130px] font-bold text-green-300 z-1 w-full ">
         Mortgages <br /> <span className="text-green-400">made simple</span>
       </h1>
       <div className="absolute top-[25%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col w-72 md:hidden">

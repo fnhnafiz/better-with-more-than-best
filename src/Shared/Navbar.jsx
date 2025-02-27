@@ -7,58 +7,62 @@ import { IoIosCall } from "react-icons/io";
 
 const Navbar = () => {
   const { pathname } = useLocation();
-  // console.log(pathname);
   const [menuBar, setMenuBar] = useState(false);
-  const [color, setColur] = useState(false);
+  const [color, setColor] = useState(false);
+
   const changeColor = () => {
     if (window.scrollY >= 1100) {
-      setColur(true);
+      setColor(true);
     } else {
-      setColur(false);
+      setColor(false);
     }
   };
-  window.addEventListener("scroll", changeColor);
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeColor);
+    return () => {
+      window.removeEventListener("scroll", changeColor);
+    };
+  }, []);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname]);
+
+  const getTextColor = () => {
+    if (color) {
+      return "text-black";
+    } else {
+      return "text-white";
+    }
+  };
   return (
     <div
-      className={
-        color
-          ? `header header-bg flex justify-between px-8 items-center py-6  text-white   ${
-              pathname === "/" && "text-white"
-            }`
-          : `header bg-[#004733] flex justify-between px-8 items-center py-6 text-white z-60`
-      }
+      className={`header ${
+        color ? "header-bg" : "bg-[#004733]"
+      } flex justify-between px-4 w-full items-center py-6 fixed top-0 left-0 right-0 z-[9999]`}
     >
       {/* Left section in navbar */}
       <div className="flex items-center justify-between">
         <section className="flex items-center gap-4 mr-16">
           <IoMenu
             onClick={() => setMenuBar(true)}
-            className="text-4xl text-black cursor-pointer lg:hidden"
+            className={`text-4xl cursor-pointer lg:hidden ${
+              color ? "text-black" : "text-white"
+            }`}
           />
           {/* website name */}
           <Link to="/">
-            <h1
-              className={`text-2xl font-bold ${
-                pathname !== "/" && "text-black"
-              } ${color && "text-black"}`}
-            >
-              BETTER
-            </h1>
+            <h1 className={`text-2xl font-bold ${getTextColor()}`}>BETTER</h1>
           </Link>
         </section>
         {/* Links in the center */}
-        <ul className="hidden lg:block lg:flex space-x-8 ">
+        <ul className="hidden lg:block lg:flex space-x-8">
           <li>
             <NavLink
               onClick={() => setMenuBar(false)}
               to="/"
-              className={` font-semibold ml-6 hover:bg-white hover:text-black py-2 px-4 rounded-full transition-all ${
-                pathname !== "/" && "text-black"
-              } ${color && "text-black"}`}
+              className={`font-semibold ml-6 hover:bg-white hover:text-black py-2 px-4 rounded-full transition-all ${getTextColor()}`}
             >
               Home
             </NavLink>
@@ -66,9 +70,7 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/start-page"
-              className={` font-semibold hover:bg-white hover:text-black py-2 px-4 rounded-full transition-all ${
-                pathname !== "/" && "text-black"
-              } ${color && "text-black"}`}
+              className={`font-semibold hover:bg-white hover:text-black py-2 px-4 rounded-full transition-all ${getTextColor()}`}
             >
               Start Page
             </NavLink>
@@ -76,9 +78,7 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/mortgage"
-              className={` font-semibold hover:bg-white hover:text-black py-2 px-4 rounded-full transition-all ${
-                pathname !== "/" && "text-black"
-              } ${color && "text-black"}`}
+              className={`font-semibold hover:bg-white hover:text-black py-2 px-4 rounded-full transition-all ${getTextColor()}`}
             >
               Mortgage Calculator
             </NavLink>
@@ -86,9 +86,7 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/about-us"
-              className={` font-semibold hover:bg-white hover:text-black py-2 px-4 rounded-full transition-all ${
-                pathname !== "/" && "text-black"
-              } ${color && "text-black"}`}
+              className={`font-semibold hover:bg-white hover:text-black py-2 px-4 rounded-full transition-all ${getTextColor()}`}
             >
               About US
             </NavLink>
@@ -113,7 +111,7 @@ const Navbar = () => {
               <NavLink
                 onClick={() => setMenuBar(false)}
                 to="/"
-                className=" font-semibold "
+                className="font-semibold"
               >
                 Home
               </NavLink>
@@ -122,7 +120,7 @@ const Navbar = () => {
               <NavLink
                 onClick={() => setMenuBar(false)}
                 to="/start-page"
-                className=" font-semibold"
+                className="font-semibold"
               >
                 Start Page
               </NavLink>
@@ -131,7 +129,7 @@ const Navbar = () => {
               <NavLink
                 onClick={() => setMenuBar(false)}
                 to="/mortgage"
-                className=" font-semibold"
+                className="font-semibold"
               >
                 Mortgage Calculator
               </NavLink>
@@ -140,14 +138,14 @@ const Navbar = () => {
               <NavLink
                 onClick={() => setMenuBar(false)}
                 to="/about-us"
-                className=" font-semibold"
+                className="font-semibold"
               >
                 About US
               </NavLink>
             </li>
           </ul>
           <div className="flex flex-col gap-6">
-            <button className=" text-black  px-4 py-6 rounded-full flex justify-center items-center">
+            <button className="text-black px-4 py-6 rounded-full flex justify-center items-center">
               <IoIosCall className="text-3xl" />
               <p>Call us anytime at (415) 523 88371</p>
             </button>
@@ -155,7 +153,7 @@ const Navbar = () => {
             <button className="bg-[#1FE180] hover:bg-green-600 px-4 py-6 rounded-full text-black font-semibold">
               Continue
             </button>
-            <button className="border border-gray-300 text-black font-semibold hover:outline-bg-700 px-4 py-6 rounded-full ">
+            <button className="border border-gray-300 text-black font-semibold hover:outline-bg-700 px-4 py-6 rounded-full">
               Sign in
             </button>
           </div>
@@ -163,22 +161,15 @@ const Navbar = () => {
       </div>
       {/* right side for user and button */}
       <section className="flex items-center gap-4">
-        {/* User photo */}
-
-        {/* Sign Out Button */}
         <div className="flex items-center gap-6">
           <button
-            className={`bg-transparent rounded-full px-2 py-2 border rounded ${
-              color ? "text-black" : "text-white"
-            }`}
+            className={`bg-transparent rounded-full px-2 py-2 border ${getTextColor()}`}
           >
             <IoIosCall className="text-2xl" />
           </button>
 
           <button
-            className={` px-4 py-2 rounded-full hidden md:block ${
-              color ? "text-black " : "text-white"
-            }    `}
+            className={`px-4 py-2 rounded-full hidden md:block ${getTextColor()}`}
           >
             Sign in
           </button>

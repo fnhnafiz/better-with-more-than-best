@@ -7,7 +7,7 @@ const GotQuestion = () => {
   return (
     <div className="w-[80%] md:w-11/12 mx-auto  my-20">
       {/* top header */}
-      <div className="flex justify-between flex-wrap gap-8 items-end">
+      <div className="flex justify-between flex-wrap gap-8 items-end mb-10">
         {/* left content */}
         <div>
           <h1 className="text-5xl font-semibold">

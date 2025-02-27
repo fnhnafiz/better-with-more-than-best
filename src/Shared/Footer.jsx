@@ -7,7 +7,7 @@ import { IoHomeOutline } from "react-icons/io5";
 
 const Footer = () => {
   return (
-    <div className="bg-[#FFFDFA] pb-12">
+    <div className="bg-[#FFFDFA] py-12 border-t border-gray-400">
       <div className="w-11/12 mx-auto  gap-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid">
         <div
           className="flex flex-col gap-4

@@ -6,7 +6,7 @@ import simpleImage from "../../public/simple-image.jpg";
 
 const MortgageCalculator = () => {
   return (
-    <div className="">
+    <div className="pt-32">
       <section className="bg-[#F0F7F1] py-8 sm:pl-8 pl-6 md:pl-12">
         <div className=" w-[90%] mx-auto">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4">
@@ -56,12 +56,12 @@ const MortgageCalculator = () => {
             <div className="flex lg:flex-row flex-col gap-4 items-center">
               <div className="relative w-full">
                 <input
-                  className="pt-6 w-full pb-4 font-bold text-2xl pr-3 pl-5 rounded-xl border border-gray-400 hover:ring-4 ring-[#017848]  bg-white"
+                  className="pt-6 w-full pb-4 font-bold text-2xl pr-3 pl-5 rounded-xl border border-gray-400 hover:ring-4 ring-[#017848] bg-white"
                   type="text"
                   defaultValue={"1206"}
                 />
                 <label
-                  className="absolute text-xs font-semibold top-[6px] left-5 text-gray-600 z-10"
+                  className="absolute text-xs font-semibold top-[6px] left-5 text-gray-600"
                   htmlFor="4"
                 >
                   Zip code
@@ -79,7 +79,7 @@ const MortgageCalculator = () => {
                   defaultValue={"20%"}
                 />
                 <label
-                  className="absolute text-xs font-semibold top-[6px] left-5 text-gray-600 z-10"
+                  className="absolute text-xs font-semibold top-[6px] left-5 text-gray-600"
                   htmlFor="4"
                 >
                   Down payment
@@ -94,7 +94,7 @@ const MortgageCalculator = () => {
                   defaultValue={"6.500"}
                 />
                 <label
-                  className="absolute text-xs font-semibold top-[6px] left-5 text-gray-600 z-10"
+                  className="absolute text-xs font-semibold top-[6px] left-5 text-gray-600"
                   htmlFor="4"
                 >
                   Interest rate
@@ -102,7 +102,7 @@ const MortgageCalculator = () => {
               </div>
               <div className="relative w-full">
                 <label
-                  className="absolute text-xs font-semibold top-[6px] left-5 text-gray-600 z-10"
+                  className="absolute text-xs font-semibold top-[6px] left-5 text-gray-600"
                   htmlFor="4"
                 >
                   Length of loan
